@@ -1,0 +1,327 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kandamul - Authentic Nepalese Food</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="60" height="60">
+                    <!-- Golden wheat arc -->
+                    <path d="M280,180 C420,120 560,180 700,280" stroke="#F2A71B" stroke-width="35" fill="none"/>
+                    <!-- Individual wheat grains -->
+                    <ellipse cx="280" cy="180" rx="20" ry="30" transform="rotate(-30 280 180)" fill="#F2A71B"/>
+                    <ellipse cx="320" cy="165" rx="20" ry="30" transform="rotate(-20 320 165)" fill="#F2A71B"/>
+                    <ellipse cx="360" cy="155" rx="20" ry="30" transform="rotate(-10 360 155)" fill="#F2A71B"/>
+                    <ellipse cx="400" cy="150" rx="20" ry="30" transform="rotate(0 400 150)" fill="#F2A71B"/>
+                    <ellipse cx="440" cy="152" rx="20" ry="30" transform="rotate(10 440 152)" fill="#F2A71B"/>
+                    <ellipse cx="480" cy="160" rx="20" ry="30" transform="rotate(20 480 160)" fill="#F2A71B"/>
+                    <ellipse cx="520" cy="175" rx="20" ry="30" transform="rotate(30 520 175)" fill="#F2A71B"/>
+                    <ellipse cx="560" cy="195" rx="20" ry="30" transform="rotate(40 560 195)" fill="#F2A71B"/>
+                    <ellipse cx="600" cy="220" rx="20" ry="30" transform="rotate(50 600 220)" fill="#F2A71B"/>
+                    <ellipse cx="640" cy="250" rx="20" ry="30" transform="rotate(60 640 250)" fill="#F2A71B"/>
+                    <ellipse cx="680" cy="280" rx="20" ry="30" transform="rotate(70 680 280)" fill="#F2A71B"/>
+                    <!-- Circle base -->
+                    <path d="M280,180 C420,550 600,550 700,280" stroke="#F2A71B" stroke-width="15" fill="none"/>
+                    <!-- K letter and leaf -->
+                    <rect x="350" y="300" width="40" height="200" fill="#4D7C0F"/>
+                    <path d="M450,300 C520,350 520,450 450,500" stroke="#4D7C0F" stroke-width="40" fill="none"/>
+                </svg>
+                <div style="display: flex; flex-direction: column; margin-left: 10px;">
+                    <span style="font-size: 24px; font-weight: bold; color: #F2A71B;">kandamul</span>
+                    <span style="font-size: 14px; font-weight: bold; color: #4D7C0F;">AGRO & FARM</span>
+                </div>
+            </a>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About Us</a></li>
+                    <li><a href="#products">Products</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div id="hero-canvas-container" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 1;"></div>
+        <div class="container" style="position: relative; z-index: 2;">
+            <div class="hero-content">
+                <h1>Taste the Himalayas</h1>
+                <p>Discover authentic Nepalese flavors crafted with love and tradition, straight from local farmers to your table.</p>
+                <div class="hero-buttons">
+                    <a href="#products" class="btn">Explore Products</a>
+                    <a href="#about" class="btn btn-secondary">Our Story</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title fade-in">Our Story</h2>
+            <div class="about-content">
+                <div class="about-image fade-in">
+                    <img src="/api/placeholder/600/400" alt="Nepalese farmers">
+                </div>
+                <div class="about-text fade-in">
+                    <h3>From the Heart of the Himalayas</h3>
+                    <p>Founded in 2018, Kandamul was born from a passion to share Nepal's incredible culinary heritage with the world while supporting local farming communities.</p>
+                    <p>We work directly with small-scale farmers across Nepal's diverse regions, from the lush valleys to the high mountains, ensuring fair compensation and sustainable practices.</p>
+                    <p>Every product in our collection tells a story of tradition, culture, and the loving hands that crafted it. We're more than just food – we're a bridge connecting you to the authentic tastes and traditions of Nepal.</p>
+                    <a href="#products" class="btn">Discover Our Products</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="products">
+        <div class="container">
+            <h2 class="section-title fade-in">Our Products</h2>
+            <div class="products-grid">
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <img src="/api/placeholder/400/300" alt="Himalayan Tea">
+                    </div>
+                    <div class="product-info">
+                        <h3>Himalayan Tea</h3>
+                        <p>Handpicked from high-altitude organic tea gardens, our premium tea offers a unique flavor profile with floral notes and a soothing aroma.</p>
+                        <div class="price">$12.99</div>
+                    </div>
+                </div>
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <img src="/api/placeholder/400/300" alt="Himalayan Honey">
+                    </div>
+                    <div class="product-info">
+                        <h3>Himalayan Honey</h3>
+                        <p>Pure, raw honey collected from the pristine forests of Nepal, offering a rich taste with natural medicinal properties.</p>
+                        <div class="price">$18.50</div>
+                    </div>
+                </div>
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <img src="/api/placeholder/400/300" alt="Nepali Spice Mix">
+                    </div>
+                    <div class="product-info">
+                        <h3>Nepali Spice Mix</h3>
+                        <p>A perfectly balanced blend of traditional Nepali spices, ideal for curries, soups, and authentic Himalayan dishes.</p>
+                        <div class="price">$9.75</div>
+                    </div>
+                </div>
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <img src="/api/placeholder/400/300" alt="Timur Pepper">
+                    </div>
+                    <div class="product-info">
+                        <h3>Timur Pepper</h3>
+                        <p>A unique Nepali spice with citrusy notes and a tingling sensation, perfect for adding depth to your cooking.</p>
+                        <div class="price">$10.99</div>
+                    </div>
+                </div>
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <img src="/api/placeholder/400/300" alt="Organic Millet Flour">
+                    </div>
+                    <div class="product-info">
+                        <h3>Organic Millet Flour</h3>
+                        <p>Stone-ground from ancient grains grown in the Himalayan foothills, our gluten-free flour is nutritious and flavorful.</p>
+                        <div class="price">$7.25</div>
+                    </div>
+                </div>
+                <div class="product-card fade-in">
+                    <div class="product-image">
+                        <img src="/api/placeholder/400/300" alt="Himalayan Pink Salt">
+                    </div>
+                    <div class="product-info">
+                        <h3>Himalayan Pink Salt</h3>
+                        <p>Hand-harvested from ancient sea salt deposits in the mountains, offering a pure, mineral-rich alternative to regular salt.</p>
+                        <div class="price">$8.50</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <h2 class="section-title fade-in">What Our Customers Say</h2>
+            <div class="testimonial-slider fade-in">
+                <div class="testimonial-slide active">
+                    <div class="testimonial-content">
+                        <p>"The Himalayan tea from Kandamul has become my daily ritual. It's unlike any tea I've ever tried - so aromatic and soothing. I love knowing it comes directly from small farmers in Nepal."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="/api/placeholder/100/100" alt="Sarah J.">
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah J.</h4>
+                            <p>Tea Enthusiast</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-slide">
+                    <div class="testimonial-content">
+                        <p>"As a chef, I'm always looking for authentic ingredients that tell a story. Kandamul's spice mixes have transformed my dishes, bringing genuine Nepalese flavors to my restaurant. My customers can taste the difference!"</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="/api/placeholder/100/100" alt="Michael R.">
+                        </div>
+                        <div class="author-info">
+                            <h4>Michael R.</h4>
+                            <p>Professional Chef</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-slide">
+                    <div class="testimonial-content">
+                        <p>"The quality of Kandamul's products is exceptional. The Himalayan honey has become a staple in our home - not only for its wonderful taste but also because we value supporting sustainable businesses that work directly with local communities."</p>
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-image">
+                            <img src="/api/placeholder/100/100" alt="Emma L.">
+                        </div>
+                        <div class="author-info">
+                            <h4>Emma L.</h4>
+                            <p>Conscious Consumer</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="slider-controls">
+                <div class="slider-dot active" data-slide="0"></div>
+                <div class="slider-dot" data-slide="1"></div>
+                <div class="slider-dot" data-slide="2"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title fade-in">Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info fade-in">
+                    <h3>Contact Information</h3>
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div>
+                            <h4>Address</h4>
+                            <p>Thamel, Kathmandu, Nepal</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+977 1 4123456</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">✉️</div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>info@kandamul.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">🕒</div>
+                        <div>
+                            <h4>Working Hours</h4>
+                            <p>Monday - Friday: 9am - 5pm</p>
+                            <p>Saturday: 10am - 2pm</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form fade-in">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Kandamul</h3>
+                    <p>Bringing authentic Nepalese flavors from the Himalayas to your home, while supporting local farming communities.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link">f</a>
+                        <a href="#" class="social-link">in</a>
+                        <a href="#" class="social-link">📷</a>
+                        <a href="#" class="social-link">🐦</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#products">Products</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Products</h3>
+                    <ul>
+                        <li><a href="#">Himalayan Tea</a></li>
+                        <li><a href="#">Spices & Herbs</a></li>
+                        <li><a href="#">Honey & Preserves</a></li>
+                        <li><a href="#">Flours & Grains</a></li>
+                        <li><a href="#">Salt & Seasonings</a></li>
+                        <li><a href="#">Gift Sets</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Newsletter</h3>
+                    <p>Subscribe to our newsletter for recipes, product updates, and exclusive offers.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Kandamul. All rights reserved. | Authentically Nepalese</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="product-canvas-container" style="position: fixed; width: 100%; height: 100%; top: 0; left: 0; z-index: -1; pointer-events: none;"></div>
+    <div class="back-to-top">↑</div>
+
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>
