@@ -17,12 +17,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from django.conf.urls.static import static
-
-
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('kandamul.urls')),  # Include the app's URLs
-    # path('products/', include('product.urls')),  # Products page
-
+    path('', include('kandamul.urls')),  # Main app
+    path('products/', include('product.urls')),  # Product app
 ]
+
+# Serve media files in development
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
