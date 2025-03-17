@@ -80,60 +80,37 @@
             </div>
         </section>
 
-    <section id="testimonials" class="testimonials">
-        <div class="container">
-            <h2 class="section-title fade-in">What Our Customers Say</h2>
-            <div class="testimonial-slider fade-in">
-                <div class="testimonial-slide active">
-                    <div class="testimonial-content">
-                        <p>"The Himalayan tea from Kandamul has become my daily ritual. It's unlike any tea I've ever tried - so aromatic and soothing. I love knowing it comes directly from small farmers in Nepal."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-image">
-                            <img src="/api/placeholder/100/100" alt="Sarah J.">
+        <section id="testimonials" class="testimonials">
+            <div class="container">
+                <h2 class="section-title fade-in">What Our Customers Say</h2>
+                
+                <div class="testimonial-slider fade-in">
+                    {% for testimonial in testimonials %}
+                    <div class="testimonial-slide {% if forloop.first %}active{% endif %}">
+                        <div class="testimonial-content">
+                            <p>"{{ testimonial.message }}"</p>
                         </div>
-                        <div class="author-info">
-                            <h4>Sarah J.</h4>
-                            <p>Tea Enthusiast</p>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <img src="{{ testimonial.image.url }}" alt="{{ testimonial.name }}">
+                            </div>
+                            <div class="author-info">
+                                <h4>{{ testimonial.first_name }}</h4>
+                                <h4>{{ testimonial.last_name }}</h4>
+                                <p>{{ testimonial.designation }}</p>
+                            </div>
                         </div>
                     </div>
+                    {% endfor %}
                 </div>
-                <div class="testimonial-slide">
-                    <div class="testimonial-content">
-                        <p>"As a chef, I'm always looking for authentic ingredients that tell a story. Kandamul's spice mixes have transformed my dishes, bringing genuine Nepalese flavors to my restaurant. My customers can taste the difference!"</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-image">
-                            <img src="/api/placeholder/100/100" alt="Michael R.">
-                        </div>
-                        <div class="author-info">
-                            <h4>Michael R.</h4>
-                            <p>Professional Chef</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-slide">
-                    <div class="testimonial-content">
-                        <p>"The quality of Kandamul's products is exceptional. The Himalayan honey has become a staple in our home - not only for its wonderful taste but also because we value supporting sustainable businesses that work directly with local communities."</p>
-                    </div>
-                    <div class="testimonial-author">
-                        <div class="author-image">
-                            <img src="/api/placeholder/100/100" alt="Emma L.">
-                        </div>
-                        <div class="author-info">
-                            <h4>Emma L.</h4>
-                            <p>Conscious Consumer</p>
-                        </div>
-                    </div>
+        
+                <div class="slider-controls">
+                    {% for testimonial in testimonials %}
+                    <div class="slider-dot {% if forloop.first %}active{% endif %}" data-slide="{{ forloop.counter0 }}"></div>
+                    {% endfor %}
                 </div>
             </div>
-            <div class="slider-controls">
-                <div class="slider-dot active" data-slide="0"></div>
-                <div class="slider-dot" data-slide="1"></div>
-                <div class="slider-dot" data-slide="2"></div>
-            </div>
-        </div>
-    </section>
+        </section>
 
     <section id="contact" class="contact">
         <div class="container">
