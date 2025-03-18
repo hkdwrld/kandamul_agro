@@ -150,11 +150,21 @@
                     </div>
                     <div class="contact-form fade-in">
                         {% if messages %}
-                            {% for message in messages %}
-                                <div class="alert {% if message.tags == 'success' %}alert-success{% else %}alert-danger{% endif %}">
-                                    {{ message }}
-                                </div>
-                            {% endfor %}
+                            <div id="success-message">
+                                {% for message in messages %}
+                                    <div class="alert {% if message.tags == 'success' %}alert-success{% else %}alert-danger{% endif %}">
+                                        {{ message }}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            <script>
+                                setTimeout(function() {
+                                    var messageDiv = document.getElementById('success-message');
+                                    if (messageDiv) {
+                                        messageDiv.style.display = 'none';
+                                    }
+                                }, 5000); // 5 seconds
+                            </script>
                         {% endif %}
                         
                         <form method="post" id="contactForm" action="{% url 'kandamul:home' %}">
