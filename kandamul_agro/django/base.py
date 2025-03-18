@@ -142,3 +142,13 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 from kandamul_agro.utils.celery import *
+
+# settings.py (add these email settings)
+EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
+EMAIL_HOST = 'smtp.gmail.com'  # or your email provider's SMTP server
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'shellybhattarai@gmail.com'  # your email address
+EMAIL_HOST_PASSWORD = 'yabm koxq hxwt apll'  # your email password or app password
+DEFAULT_FROM_EMAIL = 'shellybhattarai@gmail.com'
+ADMIN_EMAIL = 'shellyrasp13@gmail.com'  # admin email to receive messages

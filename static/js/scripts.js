@@ -135,8 +135,10 @@ if (contactForm) {
 
         // Here you would normally send the data to a server
         // For demo purposes, we'll just show an alert
-        alert(`Thank you for your message, ${name}! We'll get back to you soon.`);
 
+        // submit form 
+        contactForm.submit()
+        alert(`Thank you for your message, ${name}! We'll get back to you soon.`);
         // Reset form
         contactForm.reset();
     });
