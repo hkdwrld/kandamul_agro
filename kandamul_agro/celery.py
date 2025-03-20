@@ -12,6 +12,7 @@ app = Celery('kandamul_agro')
 app.config_from_object('django.conf:settings')
 app.autodiscover_tasks()
 
+broker_connection_retry_on_startup = True
 
 @app.task(bind=True)
 def debug_task(self):
