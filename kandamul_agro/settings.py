@@ -9,21 +9,19 @@ https://docs.djangoproject.com/en/5.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.1/ref/settings/
 """
+from decouple import config
+from pathlib import Path
 
-import os
-from kandamul_agro.env import BASE_DIR, env
 
-
-env.read_env(os.path.join(BASE_DIR, '.env'))
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool('DJANGO_DEBUG', default=True)
+SECRET_KEY = config('SECRET_KEY')
+# DEBUG = True
+DEBUG = config('DEBUG', default=True, cast=bool)
+TESTING = config('TESTING', default=True, cast=bool)
 
 ALLOWED_HOSTS = ["*"]
 
@@ -139,16 +137,24 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+# CELERY STUFF
+BROKER_URL = 'redis://localhost:6379'
+CELERY_RESULT_BACKEND = 'redis://localhost:6379'
+CELERY_ACCEPT_CONTENT = ['application/json']
+CELERY_TASK_SERIALIZER = 'json'
+CELERY_RESULT_SERIALIZER = 'json'
+CELERY_TIMEZONE = 'Asia/Kathmandu'
+CELERY_RESULT_BACKEND = BROKER_URL
 
 
-from kandamul_agro.utils.celery import *
+# email settings
+EMAIL_BACKEND= config('EMAIL_BACKEND')
+EMAIL_USE_SSL = config('EMAIL_USE_SSL', default=True)
+EMAIL_HOST = config('EMAIL_HOST', default='mail.privateemail.com')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER', default='info@gaaubesi.com')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD', default="Delivery@gbl2078")
+EMAIL_PORT = config('EMAIL_PORT', default=465)
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
-# settings.py (add these email settings)
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-EMAIL_HOST = 'smtp.gmail.com'  # or your email provider's SMTP server
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_HOST_USER = 'shellybhattarai@gmail.com'  # your email address
-EMAIL_HOST_PASSWORD = 'yabm koxq hxwt apll'  # your email password or app password
-DEFAULT_FROM_EMAIL = 'shellybhattarai@gmail.com'
-ADMIN_EMAIL = 'shellyrasp13@gmail.com'  # admin email to receive messages
+
+ADMIN_EMAIL=config("ADMIN_EMAIL")
