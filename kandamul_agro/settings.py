@@ -81,8 +81,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'kandamul_agro_db',
-        'USER': 'kandamul_agro',
-        'PASSWORD': 'kandamul',
+        'USER': 'gaaubesi',
+        'PASSWORD': 'gaaubesi',
         'HOST': 'localhost',
         'PORT': '5432',
     }
@@ -136,6 +136,7 @@ STATICFILES_DIRS = [
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 # CELERY STUFF
 BROKER_URL = 'redis://localhost:6379'
