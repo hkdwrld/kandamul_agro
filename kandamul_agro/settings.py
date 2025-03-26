@@ -160,3 +160,5 @@ DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
 ADMIN_EMAIL=config("ADMIN_EMAIL")
+
+CSRF_TRUSTED_ORIGINS=["https://kandamulagro.com.np"]
