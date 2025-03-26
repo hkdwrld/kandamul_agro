@@ -8,6 +8,14 @@ class AboutUs(models.Model):
         return self.title
 
 
+class WhyChooseUs(models.Model):
+    title = models.CharField(max_length=255, default="From the Heart of the Himalayas")
+    content = models.TextField()
+    
+    def __str__(self):
+        return self.title
+
+
 class Testimonial(models.Model):
     first_name = models.CharField(max_length=255, default="")
     last_name = models.CharField(max_length=255, default="")

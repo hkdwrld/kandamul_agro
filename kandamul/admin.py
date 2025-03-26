@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import AboutUs, Testimonial, ContactMessage
+from .models import AboutUs, Testimonial, ContactMessage, WhyChooseUs
 
 @admin.register(Testimonial)
 class TestimonialAdmin(admin.ModelAdmin):
@@ -8,7 +8,11 @@ class TestimonialAdmin(admin.ModelAdmin):
 
 @admin.register(AboutUs)
 class AboutUsAdmin(admin.ModelAdmin):
-    list_display = ('title', 'content')  
+    list_display = ('title', 'content')
+
+@admin.register(WhyChooseUs)
+class WhyChooseUsAdmin(admin.ModelAdmin):
+    list_display = ('title', 'content')
 
 @admin.register(ContactMessage)
 class ContactMessageAdmin(admin.ModelAdmin):

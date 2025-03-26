@@ -5,15 +5,19 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Kandamul - Authentic Nepalese Food</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
     </head>
     <body>
         <header>
-            <div class="container">
+            <div class="container-xl">
                 <nav class="navbar">
                     <a href="#" class="logo">
-                        <img src="{% static 'img/kandamul_logo.png' %}" alt="Kandamul Logo" style="width: 90px; height: 80px;">
-                    </a>                
+                        <img src="{% static 'img/kandamullogo.png' %}" alt="Kandamul Logo" style="width: 90px; height: 80px;">
+                    </a>
+                    <a href="#" class="logo">
+                        <img src="{% static 'img/kandamulTEXT.png' %}" alt="Kandamul text" style="height: 80px;">
+                    </a>             
                     <ul class="nav-menu">
                         <li><a href="#home" class="active">Home</a></li>
                         <li><a href="#about">About Us</a></li>
@@ -30,26 +34,30 @@
             </div>
         </header>
 
-        <section id="home" class="hero">
-            <div id="hero-canvas-container" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 1;"></div>
-            <div class="container" style="position: relative; z-index: 2;">
-                <div class="hero-content">
-                    <h1>Taste the Himalayas</h1>
-                    <p>Discover authentic Nepalese flavors crafted with love and tradition, straight from local farmers to your table.</p>
-                    <div class="hero-buttons">
-                        <a href="#products" class="btn">Explore Products</a>
-                        <a href="#about" class="btn btn-secondary">Our Story</a>
-                    </div>
-                </div>
+        <section id="home" class="hero" style="padding-bottom: 2rem;">
+            <!-- Video Background -->
+            <video autoplay muted loop id="background-video" style="position: absolute; width: 100%; height: 100%; object-fit: cover; top: 0; left: 0; z-index: 0;">
+                <source src="{% static "video/kandamul_logo.mp4" %}" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            
+            <!-- Existing canvas container -->
+            {% comment %} <div id="hero-canvas-container" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; z-index: 1;"></div> {% endcomment %}
+            
+            <!-- Content container -->
+            <div class="container" style="z-index: 2;">
+                <a href="#products" class="btn">Explore Products</a>
+                <a href="#about" class="btn btn-secondary">About Us</a>
             </div>
         </section>
 
+        {% if  about_content %}
         <section id="about" class="about">
             <div class="container">
-                <h2 class="section-title fade-in">Our Story</h2>
+                <h2 class="section-title fade-in">हाम्रो बारेमा</h2>
                 <div class="about-content">
                     <div class="about-image fade-in">
-                        <img src="{% static 'img/nepalese_farmers.jpg' %}" alt="Kandamul Logo" style="width: 600px; height: 500px;">
+                        <img src="{% static 'img/kandamul FLYER front.jpg' %}" alt="Kandamul" >
                     </div>
                     <div class="about-text fade-in">
                         <h3>{{ about_content.title }}</h3>
@@ -59,27 +67,49 @@
                 </div>
             </div>
         </section>
+        {% endif %}
 
+        {% if why_choose_us %}
+        <section id="choose-us" class="about">
+            <div class="container">
+                <h2 class="section-title fade-in">हामीलाई किन रोज्ने ?
+                </h2>
+                <div class="about-content">
+                    <div class="about-text fade-in">
+                        <h3>{{ why_choose_us.title }}</h3>
+                        <p>{{ why_choose_us.content }}</p>
+                    </div>
+                    <div class="about-image fade-in">
+                        <img src="{% static 'img/kandamul FLYER back.jpg' %}" alt="Kandamul">
+                    </div>
+                </div>
+            </div>
+        </section>
+        {% endif %}
+
+        {% if products.exists %}
         <section id="products" class="products">
             <div class="container">
                 <h2 class="section-title fade-in">Our Products</h2>
-                <div class="products-grid">
+                <div class="row gx-5">
                     {% for product in products %}
-                    <div class="product-card fade-in">
+                    <div class="product-card col-sm-12 col-md-6 col-lg-3 fade-in me-2 mt-2">
                         <div class="product-image">
                             <img src="{{ product.image.url }}" alt="{{ product.name }}">
                         </div>
                         <div class="product-info">
                             <h3>{{ product.name }}</h3>
                             <p>{{ product.description }}</p>
-                            <div class="price">${{ product.price }}</div>
+                            {% comment %} <div class="price">Rs{{ product.price }}</div> {% endcomment %}
                         </div>
                     </div>
                     {% endfor %}
                 </div>
             </div>
         </section>
+        {% endif %}
 
+        {% if testimonials.exists %}
         <section id="testimonials" class="testimonials">
             <div class="container">
                 <h2 class="section-title fade-in">What Our Customers Say</h2>
@@ -111,6 +141,8 @@
                 </div>
             </div>
         </section>
+        {% endif %}
+
 
         <section id="contact" class="contact">
             <div class="container">
@@ -122,31 +154,31 @@
                             <div class="contact-icon">📍</div>
                             <div>
                                 <h4>Address</h4>
-                                <p>Thamel, Kathmandu, Nepal</p>
+                                <p>All in One Mart, MinBhawan, Kathmandu</p>
                             </div>
                         </div>
                         <div class="contact-item">
                             <div class="contact-icon">📱</div>
                             <div>
                                 <h4>Phone</h4>
-                                <p>+977 1 4123456</p>
+                                <p>+977 9764596737</p>
                             </div>
                         </div>
                         <div class="contact-item">
                             <div class="contact-icon">✉️</div>
                             <div>
                                 <h4>Email</h4>
-                                <p>info@kandamul.com</p>
+                                <p>info@kandamulagro.com.np</p>
                             </div>
                         </div>
-                        <div class="contact-item">
+                        {% comment %} <div class="contact-item">
                             <div class="contact-icon">🕒</div>
                             <div>
                                 <h4>Working Hours</h4>
                                 <p>Monday - Friday: 9am - 5pm</p>
                                 <p>Saturday: 10am - 2pm</p>
                             </div>
-                        </div>
+                        </div> {% endcomment %}
                     </div>
                     <div class="contact-form fade-in">
                         {% if messages %}
@@ -211,40 +243,9 @@
                     <h3>Kandamul</h3>
                     <p>Bringing authentic Nepalese flavors from the Himalayas to your home, while supporting local farming communities.</p>
                     <div class="social-links">
-                        <a href="#" class="social-link">f</a>
-                        <a href="#" class="social-link">in</a>
-                        <a href="#" class="social-link">📷</a>
-                        <a href="#" class="social-link">🐦</a>
+                        <a href="https://www.facebook.com/profile.php?id=61561571724764" class="social-link">f</a>
+                        <a href="https://www.instagram.com/kandamul/" class="social-link">in</a>
                     </div>
-                </div>
-                <div class="footer-column">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About Us</a></li>
-                        <li><a href="#products">Products</a></li>
-                        <li><a href="#testimonials">Testimonials</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Products</h3>
-                    <ul>
-                        <li><a href="#">Himalayan Tea</a></li>
-                        <li><a href="#">Spices & Herbs</a></li>
-                        <li><a href="#">Honey & Preserves</a></li>
-                        <li><a href="#">Flours & Grains</a></li>
-                        <li><a href="#">Salt & Seasonings</a></li>
-                        <li><a href="#">Gift Sets</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h3>Newsletter</h3>
-                    <p>Subscribe to our newsletter for recipes, product updates, and exclusive offers.</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Your email address" required>
-                        <button type="submit" class="btn">Subscribe</button>
-                    </form>
                 </div>
             </div>
             <div class="copyright">

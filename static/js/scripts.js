@@ -163,11 +163,11 @@ if (newsletterForm) {
 }
 
 // Product card click
-const productCards = document.querySelectorAll('.product-card');
+// const productCards = document.querySelectorAll('.product-card');
 
-productCards.forEach(card => {
-    card.addEventListener('click', () => {
-        const productName = card.querySelector('h3').textContent;
-        alert(`${productName} details coming soon! This product would open in a detail page.`);
-    });
-});
+// productCards.forEach(card => {
+//     card.addEventListener('click', () => {
+//         const productName = card.querySelector('h3').textContent;
+//         alert(`${productName} details coming soon! This product would open in a detail page.`);
+//     });
+// });

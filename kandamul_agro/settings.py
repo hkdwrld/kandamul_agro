@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'kandamul_agro',
     'kandamul',
     'product',
+    # 'landing_page',
 ]
 
 MIDDLEWARE = [
@@ -81,8 +82,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'kandamul_agro_db',
-        'USER': 'gaaubesi',
-        'PASSWORD': 'gaaubesi',
+        'USER': 'gaaubesi_user',
+        'PASSWORD': 'gaaubesi_user',
         'HOST': 'localhost',
         'PORT': '5432',
     }

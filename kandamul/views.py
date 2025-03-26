@@ -4,7 +4,7 @@ from django.conf import settings
 from django.contrib import messages
 
 from kandamul.utils import send_background_mail
-from .models import AboutUs, Testimonial
+from .models import AboutUs, Testimonial, WhyChooseUs
 from product.models import Product
 from .forms import ContactForm
 
@@ -34,6 +34,7 @@ def index_view(request):
     context = {
         'form': form,
         'about_content': AboutUs.objects.first(),
+        'why_choose_us': WhyChooseUs.objects.first(),
         'products': Product.objects.all(),
         'testimonials': Testimonial.objects.all()
     }
